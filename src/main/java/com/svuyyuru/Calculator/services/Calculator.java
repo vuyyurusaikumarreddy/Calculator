@@ -11,6 +11,8 @@ import com.fathzer.soft.javaluator.DoubleEvaluator;
 @Service
 public class Calculator {
 
+    DoubleEvaluator eval = new DoubleEvaluator();
+
     public String calculate(String equation, List<Integer> factorials) {
         
         String replacedString = equation;
@@ -24,7 +26,7 @@ public class Calculator {
             }
         }
         
-        DoubleEvaluator eval = new DoubleEvaluator();
+        
  
         Double result = eval.evaluate(replacedString);
 
@@ -32,12 +34,13 @@ public class Calculator {
         
     }
 
-    private int calculateFactorial(int n) {
-        int fact = 1;
+    private double calculateFactorial(int n) {
+        Double fact = 1.0;
         for(int i=n;i>0;i--){
             fact = fact * i;
         }
-        return fact;
+
+        return eval.evaluate(String.valueOf(fact));
     }
     
 }

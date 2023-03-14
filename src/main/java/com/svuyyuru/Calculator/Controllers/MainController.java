@@ -17,7 +17,8 @@ public class MainController {
     @Autowired
     Calculator calculator;
 
-    @RequestMapping("calculate")
+
+    @RequestMapping("/calculate")
     public String getc(@RequestBody Input input) {
         List<Integer> factorials = input.getFactorials();
         String equation = input.getEquation();
